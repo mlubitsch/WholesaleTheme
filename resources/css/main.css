@@ -61,6 +61,9 @@
 div:not(.top-bar) > .page-header > div > .cmp-search-box{
     top: 65px;
 }
+#btnMainMenuToggler{
+    color: #e30d7c;
+}
 .navbar{
     background-color: #2b2b2b;
 }
