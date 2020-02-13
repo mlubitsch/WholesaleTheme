@@ -1,0 +1,193 @@
+{{ component( "Ceres::Basket.Components.AddToBasket" ) }}
+{{ component( "Ceres::Item.Components.AddToWishList" ) }}
+{{ component( "Ceres::Item.Components.GraduatedPrices" ) }}
+{{ component( "Ceres::Item.Components.ItemBundle" ) }}
+{{ component( "Ceres::Item.Components.ItemImageCarousel" ) }}
+{{ component( "Ceres::Item.Components.OldVariationSelect" ) }}
+{{ component( "Ceres::Item.Components.OrderProperties" ) }}
+{{ component( "Ceres::Item.Components.OrderPropertyList" ) }}
+{{ component( "WholesaleTheme::Item.Components.SingleItem" ) }}
+{{ component( "WholesaleTheme::Item.Components.VariationSelect" ) }}
+
+<single-item v-cloak item-data="{{ item | json_data }}" attributes-data="{{ attributes | json_data }}" variations="{{ variations | json_data }}">
+    <template #before-price>{{ LayoutContainer.show("Ceres::SingleItem.BeforePrice", item.documents[0].data) }}</template>
+    <template #after-price>{{ LayoutContainer.show("Ceres::SingleItem.AfterPrice", item.documents[0].data) }}</template>
+    <template #before-add-to-basket>{{ LayoutContainer.show("Ceres::SingleItem.BeforeAddToBasket", item.documents[0].data) }}</template>
+    <template #after-add-to-basket>{{ LayoutContainer.show("Ceres::SingleItem.AfterAddToBasket", item.documents[0].data) }}</template>
+    <template #additional-content-after-add-to-basket>{{ LayoutContainer.show("Ceres::SingleItem.AdditionalContentAfterAddToBasket", item.documents[0].data) }}</template>
+    <template #additional-content-after-vat>{{ LayoutContainer.show("Ceres::SingleItem.AdditionalContentAfterVAT", item.documents[0].data) }}</template>
+    <template #add-detail-tabs>{{ LayoutContainer.show("Ceres::SingleItem.AddDetailTabs", item.documents[0].data) }}</template>
+    <template #add-detail-tabs-content>{{ LayoutContainer.show("Ceres::SingleItem.AddDetailTabsContent", item.documents[0].data) }}</template>
+    <template #item-list-container>{{ LayoutContainer.show("Ceres::SingleItem.ItemListContainer", item) }}</template>
+    <template #feedback-container>{{ LayoutContainer.show("Ceres::SingleItem.FeedbackContainer", item) }}</template>
+    <template #image-carousel>
+        {% set ImageCarouselOverride = LayoutContainer.show("Ceres::SingleItem.ImageCarousel") %}
+        {% if ImageCarouselOverride|trim is empty %}
+            <item-image-carousel image-url-accessor="url" template="#vue-item-image-carousel"></item-image-carousel>
+        {% else %}
+            {{ ImageCarouselOverride }}
+        {% endif %}
+    </template>
+
+     
+    <!-- HAUPTCONTAINER (SUBCONTAINER) 2|3|6|4(11)|7(12)|8(13)|9(14)| -->     
+    <template #itemviewboxes>
+    
+        <!-- CHECK SUBCONTAINER -->                
+        {% set itemviewbox11 = "" %}
+        {% set itemviewbox12 = "" %}
+        {% set itemviewbox13 = "" %}       
+        {% set itemviewbox14 = "" %}
+
+        {%  for variationProperty in item.documents[0].data.variationProperties %}                               
+            {% if variationProperty.property.id == 11 %}
+                {% set itemviewbox11 = variationProperty.values.value %}                
+            {% endif %}            
+            {% if variationProperty.property.id == 12 %}
+                {% set itemviewbox12 = variationProperty.values.value %}                
+            {% endif %}            
+            {% if variationProperty.property.id == 13 %}
+                {% set itemviewbox13 = variationProperty.values.value %}                
+            {% endif %}            
+            {% if variationProperty.property.id == 14 %}
+                {% set itemviewbox14 = variationProperty.values.value %}                
+            {% endif %}            
+        {% endfor %}   
+        <!-- END CHECK SUBCONTAINER -->
+    
+        {%  for variationProperty in item.documents[0].data.variationProperties %}            
+            {% if variationProperty.property.id == 2 %}                                       
+                <div data-name="{{variationProperty.property.names.name}}" class="widget widget-grid row invert widget-full-width">
+                    <div class="container-max pt-4 pb-4">  
+                        <div class="row">
+                            <div class="col">   
+                                <div class="row">                   
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"><div class="mt-5 mr-5 mb-3 ml-5">{{ variationProperty.values.value|raw }}</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}              
+            {% if variationProperty.property.id == 3 %}                           
+                <div data-name="{{variationProperty.property.names.name}}" class="widget widget-grid row widget-full-width">     
+                    <div class="container-max pt-4 pb-4">  
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">                                                         
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"><div class="mt-5 mr-5 mb-3 ml-5">{{ variationProperty.values.value|raw }}</div></div>
+                                </div>
+                            </div>
+                        </div>                                        
+                    </div>
+                </div>
+            {% endif %}              
+            {% if variationProperty.property.id == 4 %}                           
+                <div data-name="{{variationProperty.property.names.name}}" class="widget widget-grid row invert widget-full-width">
+                    <div class="container-max pt-4 pb-4">  
+                        <div class="row">
+                            <div class="col"> 
+                                <div class="row">                   
+                                    {% if itemviewbox11|trim is not empty %}
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <div class="widget widget-image-box-no-caption widget-primary">
+                                                <img style="max-width: 100%;" src="{{ itemviewbox11|raw }}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6"><div class="mt-5 mr-5 mb-3 ml-5">{{ variationProperty.values.value|raw }}</div></div>
+                                    {% else %}                    
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">{{ variationProperty.values.value|raw }}</div>                                                
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>                                                                          
+                    </div>
+                </div>
+            {% endif %}              
+            {% if variationProperty.property.id == 6 %}                           
+                <div data-name="{{variationProperty.property.names.name}}" class="widget widget-grid row widget-full-width">                    
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 m-0 p-0"><img style="max-width: 100%;" src="{{ variationProperty.values.value|raw }}" /></div>                                        
+                </div>
+                <div data-name="default_beschreibung" class="widget widget-grid row widget-full-width">
+                    <div class="container-max pt-4 pb-4">  
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">                                                         
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"><div class="mt-5 mr-5 mb-3 ml-5">{{ item.documents[0].data.texts.description|raw }}</div></div>
+                                </div>
+                            </div>
+                        </div>                                        
+                    </div>                                
+                </div>
+            {% endif %}              
+            {% if variationProperty.property.id == 7 %}                           
+                <div data-name="{{variationProperty.property.names.name}}" class="widget widget-grid row invert widget-full-width">
+                    <div class="container-max pt-4 pb-4">    
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">                                                         
+                                    {% if itemviewbox12|trim is not empty %}
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"><div class="mt-5 mr-5 mb-3 ml-5">{{ variationProperty.values.value|raw }}</div></div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 m-0 p-0">
+                                            <div class="widget widget-image-box-no-caption widget-primary">
+                                                <img style="max-width: 100%;" src="{{ itemviewbox12|raw }}" />
+                                            </div>
+                                        </div>
+                                    {% else %}                    
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 m-0 p-0"><img style="max-width: 100%;" src="{{ variationProperty.values.value|raw }}" /></div>                                                
+                                    {% endif %}
+                                </div>                                                                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}              
+            {% if variationProperty.property.id == 8 %}                           
+                <div data-name="{{variationProperty.property.names.name}}" class="widget widget-grid row widget-full-width">       
+                    <div class="container-max pt-4 pb-4">  
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">                                                   
+                                    {% if itemviewbox13|trim is not empty %}
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"><div class="mt-5 mr-5 mb-3 ml-5">{{ variationProperty.values.value|raw }}</div></div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 m-0 p-0">
+                                            <div class="widget widget-image-box-no-caption widget-primary">
+                                                <img style="max-width: 100%;" src="{{ itemviewbox13|raw }}" />
+                                            </div>
+                                        </div>
+                                    {% else %}                    
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 m-0 p-0"><img style="max-width: 100%;" src="{{ variationProperty.values.value|raw }}" /></div>                                                
+                                    {% endif %}   
+                                </div>                                                                       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}              
+            {% if variationProperty.property.id == 9 %}                           
+                <div data-name="{{variationProperty.property.names.name}}" class="widget widget-grid row invert widget-full-width">
+                    <div class="container-max pt-4 pb-4">  
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">  
+                                    {% if itemviewbox14|trim is not empty %}
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 m-0 p-0">
+                                            <div class="widget widget-image-box-no-caption widget-primary pr-5">
+                                                <img style="max-width: 100%;" src="{{ itemviewbox14|raw }}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"><div class="mt-5 mr-5 mb-3 ml-5">{{ variationProperty.values.value|raw }}</div></div>
+                                    {% else %}                    
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">{{ variationProperty.values.value|raw }}</div>                                                
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                                                          
+                </div>
+            {% endif %}              
+
+        {% endfor %}         
+    </template>
+         
+</single-item>

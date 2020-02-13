@@ -1,0 +1,37 @@
+{
+    "version"           :   "1.0.6",
+    "name"              :   "WholesaleTheme",
+    "pluginIcon"        :   "icon_plugin_xs.png",
+    "authorIcon"        :   "icon_author_xs.png",
+    "description"       :   "",
+    "namespace"         :   "WholesaleTheme",
+    "author"            :   "plentysystems AG",
+    "type"              :   "theme",
+    "require"           :   {
+                                "Ceres":"~4.0"
+                            },
+    "serviceProvider"   :   "WholesaleTheme\\Providers\\WholesaleThemeServiceProvider",
+    "dataProviders"     :
+    [
+        {
+            "key"           :"WholesaleTheme\\Containers\\WholesaleThemeContainer",
+            "name"          :"Stylesheet",
+            "description"   :"Add changes to the CSS file"
+        },
+        {
+            "key"           :"WholesaleTheme\\Containers\\WholesaleThemeItemListContainer1",
+            "name"          :"First item list",
+            "description"   :"Display a configurable list of items in your online store"
+        },
+        {
+            "key"           :"WholesaleTheme\\Containers\\WholesaleThemeItemListContainer2",
+            "name"          :"Second item list",
+            "description"   :"Display a configurable list of items in your online store"
+        },
+        {
+            "key"           :"WholesaleTheme\\Containers\\WholesaleThemeItemListContainer3",
+            "name"          :"Third item list",
+            "description"   :"Display a configurable list of items in your online store"
+        }
+    ]
+}
