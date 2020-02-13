@@ -57,17 +57,19 @@
                             </a>
                         </li>
                     {% endif %}
-                    <li class="list-inline-item control-search">
-                        <a class="anicon anicon-search-xcross"
-                           aria-label="toggle search"
-                           data-toggle="collapse"
-                           href="#searchBox"
-                           aria-expanded="false"
-                           aria-controls="searchBox"
-                           data-parent="#controlsList">
-                            <span class="anicon-search-item" aria-hidden="true"></span>
-                        </a>
-                    </li>
+                    {% if "search" in enabledRoutes or "all" in enabledRoutes %}
+                        <li class="list-inline-item control-search">
+                            <a class="anicon anicon-search-xcross"
+                               aria-label="toggle search"
+                               data-toggle="collapse"
+                               href="#searchBox"
+                               aria-expanded="false"
+                               aria-controls="searchBox"
+                               data-parent="#controlsList">
+                                <span class="anicon-search-item" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    {% endif %}
                     {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
                         <li class="list-inline-item control-wish-list">
                             <wish-list-count>
