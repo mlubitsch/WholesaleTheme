@@ -25,20 +25,27 @@
 
                 <ul id="controlsList" class="controls-list list-inline">
                     <li class="list-inline-item control-user">
+                        
+                            <!--                            
                             <user-login-handler>
                                 <a data-toggle="modal">
                                     <i class="mr-1 fa fa-user" aria-hidden="true"></i>
                                     <span class="hidden-xs-down">{{ trans("Ceres::Template.login") }}</span>
                                 </a>
-                            </user-login-handler>
-                            <span class="pipe"></span>
-                            <!--                            
-                            <a data-toggle="modal">                            
-                                <i class="mr-1 fa fa-user-plus" aria-hidden="true"></i>
-                                <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
-                            </a                              
+                                <span class="pipe"></span>    
+                                <a data-toggle="modal">                            
+                                    <i class="mr-1 fa fa-user-plus" aria-hidden="true"></i>
+                                    <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
+                                </a>
+                            </user-login-handler>  
                             -->
-                            <a href="/register">                            
+                            <a href="/{{ lang }}/login/">
+                                <i class="mr-1 fa fa-user" aria-hidden="true"></i>
+                                <span class="hidden-xs-down">{{ trans("Ceres::Template.login") }}</span>
+                            </a>
+                            <span class="pipe"></span>
+
+                            <a href="/{{ lang }}/register/">                            
                                 <i class="mr-1 fa fa-user-plus" aria-hidden="true"></i>
                                 <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
                             </a>                        
