@@ -57,6 +57,10 @@
 
 <div class="base-price text-muted my-3" v-if="currentVariation.unit">
     <div>
+        {{ trans("Ceres::Template.singleItemWeight") }} 
+        <span>${ currentVariation.variation.weightG } g</span>    
+    </div>
+    <div>
         {{ trans("Ceres::Template.singleItemContent") }}
         <span>${ currentVariation.unit.content | numberFormat } </span>
         <span>${ currentVariation.unit.names.name }</span>
