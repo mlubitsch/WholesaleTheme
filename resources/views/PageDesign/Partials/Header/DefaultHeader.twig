@@ -4,7 +4,15 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
 <header id="page-header" class="top-bar fixed-top">
-    <div>
+    <div>    
+        <div class="container-max top-headline">
+            <div class="row mx-0">                
+                <div class="col-12 text-right">                					
+					<a href="tel: +49 (0) 89 / 747 469 040"><span class="glyphicon glyphicon-earphone">&nbsp;</span>+49 (0) 89 / 747 469 040</a>				
+                </div>
+            </div>
+        </div>
+    
         <div class="container-max">
             <div class="row mx-0">
                 <div class="brand-wrapper brand_desktop" {% if showHeaderNavBar == "side" %}style="position: relative"{% endif %}>
