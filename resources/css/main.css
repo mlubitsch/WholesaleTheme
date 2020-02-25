@@ -6,6 +6,11 @@
     padding-left: 0;
 }
 */
+.top-headline{
+    border-bottom: 1px solid #373737;
+    background-color: #131313;
+    padding: 3px;
+}
 .widget-full-width,
 .widget-cfour-slider {
     width: 100vw;
