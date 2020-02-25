@@ -5,10 +5,13 @@
 
 <header id="page-header" class="top-bar fixed-top">
     <div>    
-        <div class="container-max top-headline">
+        <div class="top-headline hidden-xs-down">
             <div class="row mx-0">                
-                <div class="col-12 text-right">                					
-					<a href="tel: +49 (0) 89 / 747 469 040"><span class="glyphicon glyphicon-earphone">&nbsp;</span>+49 (0) 89 / 747 469 040</a>				
+                <div class="col-12 text-center">  
+                    {% if language == 'de' || language == 'ch' %}
+                        <span class="fa fa-send">&nbsp;</span>Gratisversand ab 40 €&nbsp;&nbsp;|&nbsp;&nbsp;              					
+					{% endif %}
+                    <a href="tel: +49 (0) 89 / 747 469 040"><span class="fa fa-phone">&nbsp;</span>+49 (0) 89 / 747 469 040</a>				
                 </div>
             </div>
         </div>
