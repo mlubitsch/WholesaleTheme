@@ -5,11 +5,14 @@
 
 <header id="page-header" class="top-bar fixed-top">
     <div>    
-        <div class="top-headline hidden-xs-down">
-            <div class="row mx-0">                
+        <div class="top-headline">
+            <div class="row mx-0">    
+                <div class="hidden">
+                {% basket | json_encode %}
+                </div>            
                 <div class="col-12 text-center" data-text="{{ basket.shippingCountryId }}">  
                     {% if basket.shippingCountryId == "de" or basket.shippingCountryId == "ch" %}
-                        <span class="fa fa-send">&nbsp;</span>Gratisversand ab 40 &euro;&nbsp;&nbsp;|&nbsp;&nbsp;              					
+                        <span class="fa fa-send">&nbsp;</span>Free shipping<span class="hidden-xs-down">&nbsp;&nbsp;|&nbsp;&nbsp;</span>              					
 					{% endif %}
                     <a href="tel: +49 (0) 89 / 747 469 040"><span class="fa fa-phone">&nbsp;</span>+49 (0) 89 / 747 469 040</a>				
                 </div>
