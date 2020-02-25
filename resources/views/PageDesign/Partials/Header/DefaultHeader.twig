@@ -9,6 +9,8 @@
             <div class="row mx-0">    
                 <div class="hidden">
                 {{ shippingCountryId | json_encode }}
+                {{ shippingCountry.id }}
+                {{ shippingCountry | json_encode }}
                 </div>            
                 <div class="col-12 text-center" data-text="{{ basket.shippingCountryId }}">  
                     {% if basket.shippingCountryId == "de" or basket.shippingCountryId == "ch" %}
