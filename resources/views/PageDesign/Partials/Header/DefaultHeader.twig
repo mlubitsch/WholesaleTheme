@@ -8,7 +8,7 @@
         <div class="top-headline">
             <div class="row mx-0">    
                 <div class="hidden">
-                {{ basket | json_encode }}
+                {{ shippingCountryId | json_encode }}
                 </div>            
                 <div class="col-12 text-center" data-text="{{ basket.shippingCountryId }}">  
                     {% if basket.shippingCountryId == "de" or basket.shippingCountryId == "ch" %}
