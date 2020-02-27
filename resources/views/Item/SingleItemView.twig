@@ -67,16 +67,16 @@
         {% endfor %}   
         <!-- END CHECK SUBCONTAINER -->
     
-        <div class="widget widget-grid row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"><div class="mt-5 mr-5 mb-3 ml-5">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"><div class="mt-5 mr-5 mb-3 ml-5 text-center">
             {% if itemviewbox15|trim is not empty %}
-                <a href="{{ itemviewbox15|raw }}">Download Datasheet</a>
+                <a target="_blank" href="{{ itemviewbox15|raw }}"><span class="fa fa-file"></span> Download Datasheet</a>&nbsp;&nbsp;
             {% endif %}     
             {% if itemviewbox16|trim is not empty %}
-                <a href="{{ itemviewbox16|raw }}">Download Item Description</a>
+                <a target="_blank" href="{{ itemviewbox16|raw }}"><span class="fa fa-info"></span> Download Item Description</a>&nbsp;&nbsp;
             {% endif %}     
             {% if itemviewbox17|trim is not empty %}
-                <a href="{{ itemviewbox17|raw }}">Download Safety Data Sheet</a>
+                <a target="_blank" href="{{ itemviewbox17|raw }}"><span class="fa fa-warning"></span> Download Safety Data Sheet</a>&nbsp;&nbsp;
             {% endif %}
             </div></div>
         </div>     
