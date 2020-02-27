@@ -7,11 +7,6 @@
     <div>    
         <div class="top-headline">
             <div class="row mx-0">    
-                <div class="hidden">
-                {{ shippingCountryId | json_encode }}
-                {{ shippingCountry.id }}
-                {{ shippingCountry | json_encode }}
-                </div>            
                 <div class="col-12 text-center" data-text="{{ basket.shippingCountryId }}">  
                     {% if basket.shippingCountryId == "de" or basket.shippingCountryId == "ch" %}
                         <span class="fa fa-send">&nbsp;</span>Free shipping<span class="hidden-xs-down">&nbsp;&nbsp;|&nbsp;&nbsp;</span>              					
