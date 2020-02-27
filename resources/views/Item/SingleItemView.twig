@@ -38,6 +38,9 @@
         {% set itemviewbox12 = "" %}
         {% set itemviewbox13 = "" %}       
         {% set itemviewbox14 = "" %}
+        {% set itemviewbox15 = "" %}
+        {% set itemviewbox16 = "" %}
+        {% set itemviewbox17 = "" %}
 
         {%  for variationProperty in item.documents[0].data.variationProperties %}                               
             {% if variationProperty.property.id == 11 %}
@@ -55,7 +58,22 @@
         {% endfor %}   
         <!-- END CHECK SUBCONTAINER -->
     
-        {%  for variationProperty in item.documents[0].data.variationProperties %}            
+        {%  for variationProperty in item.documents[0].data.variationProperties %}
+            {% if itemviewbox15|trim is not empty or itemviewbox16|trim is not empty or itemviewbox17|trim is not empty %}
+                <div class="widget widget-grid row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"><div class="mt-5 mr-5 mb-3 ml-5">
+                    {% if itemviewbox15|trim is not empty %}
+                        <a href="{{ itemviewbox15|raw }}">Download Datasheet</a>
+                    {% endif %}     
+                    {% if itemviewbox16|trim is not empty %}
+                        <a href="{{ itemviewbox16|raw }}">Download Item Description</a>
+                    {% endif %}     
+                    {% if itemviewbox17|trim is not empty %}
+                        <a href="{{ itemviewbox17|raw }}">Download Safety Data Sheet</a>
+                    {% endif %}
+                    </div></div>
+                </div>     
+            {% endif %}
             {% if variationProperty.property.id == 2 %}                                       
                 <div data-name="{{variationProperty.property.names.name}}" class="widget widget-grid row invert widget-full-width">
                     <div class="container-max pt-4 pb-4">  
